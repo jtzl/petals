@@ -15,7 +15,7 @@ from transformers import AutoTokenizer
 from petals import AutoDistributedModelForCausalLM
 
 # Choose any model available at https://health.petals.dev
-model_name = "meta-llama/Meta-Llama-3.1-405B-Instruct"
+model_name = "mistralai/Mixtral-8x7B-Instruct-v0.1"
 
 # Connect to a distributed network hosting model layers
 tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -26,6 +26,7 @@ inputs = tokenizer("A cat sat", return_tensors="pt")["input_ids"]
 outputs = model.generate(inputs, max_new_tokens=5)
 print(tokenizer.decode(outputs[0]))  # A cat sat on a mat...
 ```
+Additional details can be found in the wiki, or ask questions on Discord.
 
 <p align="center">
     🚀 &nbsp;<b><a href="https://colab.research.google.com/drive/1uCphNY7gfAUkdDrTx21dZZwCOUDCMPw8?usp=sharing">Try now in Colab</a></b>
